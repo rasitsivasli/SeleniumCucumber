@@ -1,4 +1,4 @@
-@background
+@background @parallel
 Feature: Template Feature
   Background: ortak stepler
     Given kullanici google sayfasina gider

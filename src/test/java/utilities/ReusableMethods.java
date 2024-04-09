@@ -18,14 +18,14 @@ import java.util.List;
 import java.util.function.Function;
 
 public class ReusableMethods {
-    protected static WebDriver driver=Driver.getDriver();
+    protected static WebDriver driver;
 
     public static String takeScreenshot(String fileName) throws IOException {
         //WebDriverManager.chromedriver().setup();
         //WebDriverManager.firefoxdriver().setup();
         //driver = new ChromeDriver();
         // TakesScreenshot is an interface of selenium that takes the screenshot
-        TakesScreenshot ts = (TakesScreenshot) driver;
+        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);
 
         // naming the screenshot with the current date to avoid duplication

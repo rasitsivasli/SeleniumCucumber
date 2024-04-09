@@ -15,7 +15,7 @@ public class AmazonSD {
     @Given("kullanici amazon sayfasina gider")
     public void kullaniciAmazonSayfasinaGider() {
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
-        ReusableMethods.amazonCaptcha(Driver.getDriver());
+        //ReusableMethods.amazonCaptcha(Driver.getDriver());
     }
 
     @When("kullanici {string} icin arama yapar")
@@ -24,7 +24,9 @@ public class AmazonSD {
     }
 
     @Then("kullanici title da {string} gormelidir")
-    public void kullaniciTitleDaGormelidir(String str) {
+    public void kullaniciTitleDaGormelidir(String str) throws InterruptedException {
+        //Thread.sleep(2000);
+        ReusableMethods.waitForPageToLoad(3);
         Assert.assertTrue(Driver.getDriver().getTitle().contains(str));
     }
 }
